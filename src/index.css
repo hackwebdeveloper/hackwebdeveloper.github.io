@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 208 100% 22%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 208 100% 22%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 208 100% 22%;
+
+    /* Blue #2575bf */
+    --primary: 208 65% 44%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 208 65% 85%;
+    
+    /* Gold #fab714 */
+    --secondary: 43 96% 53%;
+    --secondary-foreground: 208 100% 22%;
+    
+    /* Red #d62300 */
+    --accent: 9 100% 42%;
+    --accent-foreground: 0 0% 100%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --destructive: 9 100% 42%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 208 65% 44%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(208 65% 44% / 0.95), hsl(208 65% 30% / 0.95));
+    --gradient-card: linear-gradient(180deg, hsl(208 65% 44%), hsl(208 65% 38%));
+    --gradient-warm: linear-gradient(135deg, hsl(43 96% 53%), hsl(9 100% 42%));
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px hsl(208 65% 44% / 0.15);
+    --shadow-strong: 0 8px 30px hsl(208 65% 44% / 0.25);
+    
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent;
+  }
+  
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-xl;
+  }
+
+  .card-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent;
+  }
+}
